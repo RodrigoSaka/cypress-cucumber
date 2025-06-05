@@ -1,11 +1,11 @@
-const http = require('http');
-const fs = require('fs');
-const path = require('path');
+import http from 'http';
+import fs from 'fs';
+import path from 'path';
 
 const PORT = process.env.PORT || 3000;
 
 const server = http.createServer((req, res) => {
-  const file = req.url === '/' ? '/index.html' : req.url;
+  const file = req.url === '/' ? '/index.html' : req.url!;
   const filePath = path.join(__dirname, 'public', file);
   fs.readFile(filePath, (err, data) => {
     if (err) {

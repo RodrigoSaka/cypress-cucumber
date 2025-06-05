@@ -1,6 +1,6 @@
 # Cypress Cucumber Example
 
-Este projeto demonstra como usar Cypress junto com Cucumber para testes E2E.
+Este projeto demonstra como usar Cypress junto com Cucumber para testes E2E, agora escrito em TypeScript.
 
 ## Instalação
 
@@ -10,7 +10,13 @@ npm install
 
 ## Executando
 
-Em um terminal, inicie o servidor de exemplo:
+Primeiro, construa o projeto TypeScript:
+
+```bash
+npm run build
+```
+
+Em seguida, inicie o servidor de exemplo:
 
 ```bash
 npm start
