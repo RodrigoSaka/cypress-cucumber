@@ -10,11 +10,15 @@ npm install
 
 ## Executando
 
-Primeiro, construa o projeto TypeScript:
+Primeiro, construa o projeto. O comando utiliza o `tsc` para compilar o
+`server.ts` e o [Vite](https://vitejs.dev/) para empacotar o código
+TypeScript da pasta `src`:
 
 ```bash
 npm run build
 ```
+
+Os arquivos gerados ficam em `dist/public` e serão servidos pelo servidor Node.
 
 Em seguida, inicie o servidor de exemplo:
 

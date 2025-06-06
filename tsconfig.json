@@ -11,9 +11,11 @@
     "moduleResolution": "node16"
   },
   "include": [
-    "**/*.ts"
+    "server.ts",
+    "cypress.config.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "src"
   ]
 }
