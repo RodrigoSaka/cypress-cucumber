@@ -7,7 +7,7 @@ if [ ! -d node_modules ]; then
   npm install
 fi
 
-# Compile TypeScript
+# Compile TypeScript and bundle frontend assets
 npm run build
 
 # Start the server in background

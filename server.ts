@@ -6,9 +6,9 @@ const PORT = process.env.PORT || 3000;
 
 const server = http.createServer((req, res) => {
   const file = req.url === '/' ? '/index.html' : req.url!;
-  // __dirname points to the compiled `dist` folder. The static files live in
-  // `public` at the project root, so go one level up from `dist`.
-  const filePath = path.join(__dirname, '../public', file);
+  // When compiled, this file lives in `dist`. Static assets built by Vite are
+  // output to `dist/public`, so serve files from that directory.
+  const filePath = path.join(__dirname, 'public', file);
   fs.readFile(filePath, (err, data) => {
     if (err) {
       res.writeHead(404);
