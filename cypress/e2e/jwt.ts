@@ -23,14 +23,15 @@ Given('I open the demo page injecting a JWT', () => {
       const w = win as unknown as TestWindow;
       attachGenerateJWT(w);
       injectedToken = w.generateJWT();
-      (w.document.body as any).token = injectedToken;
+      (w as any).token = injectedToken;
     },
   });
 });
 
 Then('the token property should exist on the body', () => {
   cy.get('body').should(($body) => {
-    expect(($body.get(0) as any).token).to.equal(injectedToken);
+    const bodyToken = ($body.get(0) as any).token;
+    expect(bodyToken).to.equal(injectedToken);
   });
 });
 
