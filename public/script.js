@@ -10,10 +10,19 @@ window.generateJWT = function () {
 document.addEventListener('DOMContentLoaded', () => {
   const tokenEl = document.getElementById('token');
   if (tokenEl) {
-    tokenEl.textContent = document.body.token || '';
+    const bodyToken = (document.body || {}).token;
+    const winToken = (window).token;
+    const token = bodyToken || winToken || '';
+    if (winToken && !bodyToken && document.body) {
+      document.body.token = winToken;
+    }
+    tokenEl.textContent = token;
   }
 
   document.getElementById('change')?.addEventListener('click', () => {
-    document.getElementById('title')!.textContent = 'Button Clicked';
+    const titleEl = document.getElementById('title');
+    if (titleEl) {
+      titleEl.textContent = 'Button Clicked';
+    }
   });
 });
