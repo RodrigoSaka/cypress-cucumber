@@ -28,6 +28,14 @@ Em outro terminal, execute os testes:
 npm test
 ```
 
+### Script único
+
+Para realizar a build, subir o servidor e rodar os testes de uma só vez:
+
+```bash
+npm run run:all
+```
+
 Para abrir a interface interativa do Cypress:
 
 ```bash
