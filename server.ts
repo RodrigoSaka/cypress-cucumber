@@ -6,7 +6,9 @@ const PORT = process.env.PORT || 3000;
 
 const server = http.createServer((req, res) => {
   const file = req.url === '/' ? '/index.html' : req.url!;
-  const filePath = path.join(__dirname, 'public', file);
+  // __dirname points to the compiled `dist` folder. The static files live in
+  // `public` at the project root, so go one level up from `dist`.
+  const filePath = path.join(__dirname, '../public', file);
   fs.readFile(filePath, (err, data) => {
     if (err) {
       res.writeHead(404);
