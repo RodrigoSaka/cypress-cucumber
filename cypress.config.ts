@@ -15,6 +15,9 @@ export default defineConfig({
       );
       return config;
     },
+    env: {
+      stepDefinitions: 'cypress/e2e/steps/*.ts'
+    },
     reporter: 'mochawesome',
     reporterOptions: {
       reportDir: 'cypress/reports',

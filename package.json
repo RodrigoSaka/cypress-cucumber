@@ -8,6 +8,7 @@
     "cy:run": "cypress run",
     "test": "npm run cy:run",
     "build": "tsc && vite build",
+    "merge:reports": "rm -f cypress/reports/merged-report.json && npx mochawesome-merge cypress/reports/mochawesome_*.json > cypress/reports/merged-report.json && npx marge cypress/reports/merged-report.json -o cypress/reports -f merged-report",
     "run:all": "./run-all.sh"
   },
   "keywords": [],

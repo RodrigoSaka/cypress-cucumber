@@ -24,5 +24,4 @@ sleep 2
 npm test
 
 # Merge mochawesome JSON reports
-npx mochawesome-merge cypress/reports/*.json > cypress/reports/merged-report.json
-npx marge cypress/reports/merged-report.json -o cypress/reports -f merged-report
+npm run merge:reports
