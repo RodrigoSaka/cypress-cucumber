@@ -12,7 +12,8 @@
   },
   "include": [
     "server.ts",
-    "cypress.config.ts"
+    "cypress.config.ts",
+    "cypress"
   ],
   "exclude": [
     "node_modules",
