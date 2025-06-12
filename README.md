@@ -40,6 +40,9 @@ Para realizar a build, subir o servidor e rodar os testes de uma só vez:
 npm run run:all
 ```
 
+Após a execução, um relatório consolidado é gerado em
+`cypress/reports/merged-report.html`.
+
 Para abrir a interface interativa do Cypress:
 
 ```bash
