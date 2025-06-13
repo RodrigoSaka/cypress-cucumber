@@ -17,9 +17,9 @@ npm install
 - `npm run build` – compila o `server.ts` com `tsc` e empacota os arquivos de `src/` com Vite, gerando a pasta `dist/public`.
 - `npm start` – inicia o servidor Node para servir os arquivos de `dist/public`.
 - `npm test` – executa o Cypress em modo headless.
+- `npm run run:tests` – executa o Cypress e gera o relatório consolidado em `coverage/reports.html`.
 - `npm run cy:open` – abre a interface interativa do Cypress.
 - `npm run run:all` – faz a build, inicia o servidor e roda os testes de uma só vez.
-- `npm run merge:reports` – consolida os relatórios em `cypress/reports`.
 
 ## Executando os testes
 
@@ -28,7 +28,7 @@ Após compilar o projeto, inicie o servidor e rode o Cypress:
 ```bash
 npm run build
 npm start        # em um terminal
-npm test         # em outro terminal
+npm run run:tests  # em outro terminal
 ```
 
 Para automatizar o processo acima, utilize:
@@ -37,7 +37,7 @@ Para automatizar o processo acima, utilize:
 npm run run:all
 ```
 
-Ao final um relatório consolidado estará disponível em `cypress/reports/merged-report.html`.
+Ao final um relatório consolidado estará disponível em `coverage/reports.html`.
 
 ## Estrutura do projeto
 

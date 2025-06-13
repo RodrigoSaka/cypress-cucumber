@@ -20,8 +20,6 @@ trap 'kill $SERVER_PID' EXIT
 # Wait a moment for the server to be ready
 sleep 2
 
-# Run Cypress tests
-npm test
+# Run Cypress tests and generate report
+npm run run:tests
 
-# Merge mochawesome JSON reports
-npm run merge:reports
