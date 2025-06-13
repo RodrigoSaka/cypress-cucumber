@@ -1,6 +1,10 @@
-# Cypress Cucumber Example
+# Cypress + Cucumber Example
 
-Este projeto demonstra como usar Cypress junto com Cucumber para testes E2E, agora escrito em TypeScript.
+Este repositório demonstra como integrar [Cypress](https://www.cypress.io/) e [Cucumber](https://cucumber.io/) utilizando TypeScript. Ele pode servir de ponto de partida para criação de testes end‑to‑end escritos em Gherkin e executados no Cypress, com geração de relatórios de execução.
+
+## Requisitos
+
+- Node.js 16+ e npm
 
 ## Instalação
 
@@ -8,45 +12,46 @@ Este projeto demonstra como usar Cypress junto com Cucumber para testes E2E, ago
 npm install
 ```
 
-## Executando
+## Scripts disponíveis
 
-Primeiro, construa o projeto. O comando utiliza o `tsc` para compilar o
-`server.ts` e o [Vite](https://vitejs.dev/) para empacotar o código
-TypeScript da pasta `src`:
+- `npm run build` – compila o `server.ts` com `tsc` e empacota os arquivos de `src/` com Vite, gerando a pasta `dist/public`.
+- `npm start` – inicia o servidor Node para servir os arquivos de `dist/public`.
+- `npm test` – executa o Cypress em modo headless.
+- `npm run cy:open` – abre a interface interativa do Cypress.
+- `npm run run:all` – faz a build, inicia o servidor e roda os testes de uma só vez.
+- `npm run merge:reports` – consolida os relatórios em `cypress/reports`.
+
+## Executando os testes
+
+Após compilar o projeto, inicie o servidor e rode o Cypress:
 
 ```bash
 npm run build
+npm start        # em um terminal
+npm test         # em outro terminal
 ```
 
-Os arquivos gerados ficam em `dist/public` e serão servidos pelo servidor Node.
-
-Em seguida, inicie o servidor de exemplo:
-
-```bash
-npm start
-```
-
-Em outro terminal, execute os testes:
-
-```bash
-npm test
-```
-
-### Script único
-
-Para realizar a build, subir o servidor e rodar os testes de uma só vez:
+Para automatizar o processo acima, utilize:
 
 ```bash
 npm run run:all
 ```
 
-Após a execução, um relatório consolidado é gerado em
-`cypress/reports/merged-report.html`.
+Ao final um relatório consolidado estará disponível em `cypress/reports/merged-report.html`.
 
-Para abrir a interface interativa do Cypress:
+## Estrutura do projeto
 
-```bash
-npm run cy:open
+```
+cypress-cucumber/
+├── cypress/              # testes, features e steps em Gherkin
+├── src/                  # código frontend em TypeScript
+├── server.ts             # servidor Node para servir os arquivos
+├── index.html            # página de exemplo
+└── run-all.sh            # script utilitário para build + servidor + testes
 ```
 
-Os testes estão localizados em `cypress/e2e` usando o formato Gherkin (`.feature`).
+Os testes encontram-se em `cypress/e2e`, utilizando o preprocessor `@badeball/cypress-cucumber-preprocessor`.
+
+## Licença
+
+Distribuído sob a licença ISC.
