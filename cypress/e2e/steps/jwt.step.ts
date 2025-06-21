@@ -2,6 +2,11 @@ import { Given, Then } from '@badeball/cypress-cucumber-preprocessor';
 
 interface TestWindow extends Window {
   generateJWT: () => string;
+  token?: string;
+}
+
+interface CustomHTMLBodyElement extends HTMLBodyElement {
+  token?: string;
 }
 
 let injectedToken: string;
@@ -21,14 +26,14 @@ Given('I open the demo page injecting a JWT', () => {
       const w = win as unknown as TestWindow;
       attachGenerateJWT(w);
       injectedToken = w.generateJWT();
-      (w as any).token = injectedToken;
+      w.token = injectedToken;
     }
   });
 });
 
 Then('the token property should exist on the body', () => {
-  cy.get('body').should($body => {
-    const bodyToken = ($body.get(0) as any).token;
+  cy.window().then(win => {
+    const bodyToken = (win as TestWindow).token;
     expect(bodyToken).to.equal(injectedToken);
   });
 });

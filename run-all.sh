@@ -22,4 +22,5 @@ sleep 2
 
 # Run Cypress tests and generate report
 npm run run:tests
+npm run combine:reports
 

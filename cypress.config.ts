@@ -10,7 +10,7 @@ export default defineConfig({
       on(
         'file:preprocessor',
         createBundler({
-          plugins: [createEsbuildPlugin(config)],
+          plugins: [createEsbuildPlugin(config)]
         })
       );
       return config;
@@ -18,14 +18,11 @@ export default defineConfig({
     env: {
       stepDefinitions: 'cypress/e2e/steps/*.ts'
     },
-    reporter: 'mochawesome',
+    reporter: 'cypress-multi-reporters',
     reporterOptions: {
-      reportDir: 'coverage',
-      overwrite: false,
-      html: false,
-      json: true,
+      configFile: 'reporter-config.json'
     },
     specPattern: 'cypress/e2e/**/*.feature',
-    baseUrl: 'http://localhost:3000',
-  },
+    baseUrl: 'http://localhost:3000'
+  }
 });
